@@ -15,10 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('messages', 'MessageController@fetch');
-Route::post('messages', 'MessageController@sentMessage');
+//Route::get('messages', 'MessageController@fetch');
+//Route::post('messages', 'MessageController@sentMessage');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+
+Route::get('/', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+Route::get('chat','ChatsController@chat');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
